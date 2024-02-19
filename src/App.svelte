@@ -18,20 +18,20 @@
 
   import Svelecte from "svelecte";
 
-  let options = {
-    chart: {
-      type: "bar",
-    },
-    series: [
-      {
-        name: "sales",
-        data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
-      },
-    ],
-    xaxis: {
-      categories: ["September 2022", 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-    },
-  };
+  // let options = {
+  //   chart: {
+  //     type: "bar",
+  //   },
+  //   series: [
+  //     {
+  //       name: "sales",
+  //       data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
+  //     },
+  //   ],
+  //   xaxis: {
+  //     categories: ["September 2022", 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+  //   },
+  // };
 
   // import { copy } from 'svelte-copy';
 
@@ -44,38 +44,38 @@
   let presentationValues = [];
   let statusValues = [];
 
-  let MonthStats = {
-    _12monthAgo: 6,
-    _11monthAgo: 8,
-    _10monthAgo: 23,
-    _9monthAgo: 64,
-    _8monthAgo: 2,
-    _7monthAgo: 5,
-    _6monthAgo: 1,
-    _5monthAgo: 6,
-    _4monthAgo: 7,
-    _3monthAgo: 2,
-    _2monthAgo: 6,
-    _1monthAgo: 66,
-  };
+  // let MonthStats = {
+  //   _12monthAgo: 6,
+  //   _11monthAgo: 8,
+  //   _10monthAgo: 23,
+  //   _9monthAgo: 64,
+  //   _8monthAgo: 2,
+  //   _7monthAgo: 5,
+  //   _6monthAgo: 1,
+  //   _5monthAgo: 6,
+  //   _4monthAgo: 7,
+  //   _3monthAgo: 2,
+  //   _2monthAgo: 6,
+  //   _1monthAgo: 66,
+  // };
 
-  function writeStatistic() {
-    fetch("http://sestoas647/node/sb11/api/stats")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not OK");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Process the fetched data
-        console.log(data);
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the fetch
-        console.error("Error:", error);
-      });
-  }
+  // function writeStatistic() {
+  //   fetch("http://sestoas647/node/sb11/api/stats")
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not OK");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       // Process the fetched data
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors that occurred during the fetch
+  //       console.error("Error:", error);
+  //     });
+  // }
 
   fetchData();
 
@@ -279,15 +279,12 @@
   <h2>Skapa SB11-lager</h2>
   <p>
     Här kan du söka fram och skapa SB11-lagernamn. SB11-lagernamn består av fyra
-    "fält" och 11 "positioner". I uppdrag för Trafikverket kan man besöka
-    Strukturplatsen för att se vilka olika fält som kan kombineras. För att
-    förenkla processen så laddar ansvariga på Transport ner aktuell lista från
-    Strukturplatsen med jämna mellanrun, och sparar den i en databas hos Sweco,
-    för använding i tex. granskning och detta verktyg. När du byggt dina
+    "fält" och 11 "positioner". Fälten härstammar från Strukturplatsen. När du byggt dina
     lagernamn, kan du enkelt "scripta in" dom i AutoCAD med tillhörande
-    beskrivningar. Detta verktyg är utvecklat av Svante Tegeland på Digital
-    Services.
+    beskrivningar. Detta verktyg är utvecklat av Svante Tegeland.
   </p>
+
+
   <!-- <p>
     <img src="/src/assets/sb11.png" alt="SB11" class="img-fluid" />
   </p> -->
@@ -295,6 +292,7 @@
   <Card class="mb-3">
     <CardBody>
       <!--------- Test ------------->
+    
 
       <section>
         <form>
@@ -432,7 +430,7 @@
     </Card>
   {/if}
   
-  <div class="container"  style="margin-top: 15px">
+  <!-- <div class="container"  style="margin-top: 15px">
     <h2>12 månaders statistik</h2>
     <p>
       Här kan du se hur många SB11-koder som skapats de senaste 12 månaderna.
@@ -440,9 +438,9 @@
     <p>
       <Button on:click={writeStatistic}>Hämta statistik</Button>
     </p>
-  </div>
+  </div> -->
 
-  <div use:chart={options} />
+  <!-- <div use:chart={options} /> -->
 </div>
 
 <style>
@@ -458,12 +456,5 @@
       U+2215, U+FEFF, U+FFFD;
   }
 
-  .input-group-text {
-    background-color: blueviolet;
-  }
 
-  #code {
-    font-family: "Lucida Console", "Courier New", monospace;
-    color: #d1cfcf;
-  }
 </style>
